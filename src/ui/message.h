@@ -242,15 +242,19 @@ namespace ui {
 
   class DropFilesMessage : public Message {
   public:
-    DropFilesMessage(const base::paths& files)
+    DropFilesMessage(const base::paths& files, const gfx::Point& pos = {0, 0})
       : Message(kDropFilesMessage)
-      , m_files(files) {
+      , m_files(files)
+      , m_pos(pos) {
     }
 
     const base::paths& files() const { return m_files; }
+    const gfx::Point& position() const { return m_pos; }
 
   private:
     base::paths m_files;
+    gfx::Point m_pos;           // Mouse pointer coordinates relative to the
+                                // receiver window of the drop action.
   };
 
 } // namespace ui

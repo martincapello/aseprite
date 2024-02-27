@@ -467,7 +467,7 @@ void Manager::generateMessagesFromOSEvents()
       }
 
       case os::Event::DropFiles: {
-        Message* msg = new DropFilesMessage(osEvent.files());
+        Message* msg = new DropFilesMessage(osEvent.files(), osEvent.position());
         msg->setDisplay(display);
         msg->setRecipient(this);
         enqueueMessage(msg);
