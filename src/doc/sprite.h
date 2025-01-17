@@ -244,6 +244,9 @@ public:
 
   void setTileManagementPlugin(const std::string& plugin) { m_tileManagementPlugin = plugin; }
 
+  void setUseUuidsForLayers(bool value) { m_useUuidsForLayers = value; }
+  bool useUuidsForLayers() const { return m_useUuidsForLayers; }
+
 private:
   Document* m_document;
   ImageSpec m_spec;
@@ -271,6 +274,9 @@ private:
   // (e.g. drag & drop tiles, or TilesetMode::Auto mode, etc.),
   // giving the possibility to handle tiles exclusively to a plugin.
   std::string m_tileManagementPlugin;
+
+  // This setting indicates if the layers of this sprite are using UUIDs.
+  bool m_useUuidsForLayers;
 
   // Disable default constructor and copying
   Sprite();

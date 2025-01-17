@@ -215,6 +215,17 @@ Cel* Layer::cel(frame_t frame) const
   return nullptr;
 }
 
+const base::Uuid& Layer::uuid()
+{
+  if (!m_sprite || !m_sprite->useUuidsForLayers())
+    return base::Uuid::Null;
+
+  if (m_uuid == base::Uuid::Null)
+    m_uuid = base::Uuid::Generate();
+
+  return m_uuid;
+}
+
 //////////////////////////////////////////////////////////////////////
 // LayerImage class
 
